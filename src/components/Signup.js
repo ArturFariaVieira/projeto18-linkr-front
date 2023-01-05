@@ -126,7 +126,7 @@ const SingContainer = styled.section`
       color: #ffffff;
     }
     p {
-      font-family: "Oswald";
+      font-family: "Oswald", sans-serif;
       font-style: normal;
       font-weight: 700;
       font-size: 43px;
@@ -180,7 +180,7 @@ const Form = styled.form`
     padding-left: 12px;
     background: #ffffff;
     border-radius: 6px;
-    font-family: "Oswald";
+    font-family: "Oswald", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -193,7 +193,7 @@ const Form = styled.form`
     margin-left: 2px;
     background: #1877f2;
     border-radius: 6px;
-    font-family: "Oswald";
+    font-family: "Oswald", sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
@@ -203,10 +203,10 @@ const Form = styled.form`
 
   span {
     margin-top: 10px;
-    font-family: "Lato";
+    font-family: "Lato", sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 17px;
     line-height: 24px;
     text-decoration-line: underline;
     color: #ffffff;
