@@ -107,7 +107,7 @@ const SingContainer = styled.section`
       color: #ffffff;
     }
     p {
-      font-family: "Oswald";
+      font-family: "Oswald",sans-serif;;
       font-style: normal;
       font-weight: 700;
       font-size: 43px;
@@ -174,7 +174,7 @@ const Form = styled.form`
     margin-left: 2px;
     background: #1877f2;
     border-radius: 6px;
-    font-family: "Oswald";
+    font-family: "Oswald",sans-serif;;
     font-style: normal;
     font-weight: 700;
     font-size: 27px;

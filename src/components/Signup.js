@@ -28,7 +28,7 @@ export default function Signup() {
           timer: "7000",
         });
       }
-      navigate("/signin");
+      navigate("/");
     });
   }
   return (
@@ -94,7 +94,7 @@ export default function Signup() {
           <button onClick={handleSendForm}>Sign Up</button>
 
           <span>
-            <Link className="link" to="/signin">
+            <Link className="link" to="/">
               Switch back to log in
             </Link>
           </span>
