@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import NavBar from "./NavBar.js"
 import SearchBarMobile from "./SearchBarMobile.js";
 
