@@ -5,6 +5,9 @@ import Signup from "./components/Signup.js";
 import RefreshProvider from "./Contexts/RefreshContext.js";
 import Container from "./components/Container.js";
 
+// Pages
+import Timeline from "./pages/Timeline.js";
+
 function App() {
   return (
     <>
@@ -14,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/signup" element={<Signup />} />
             <Route path="/signin" element={<Signin />} />
-            <Route path="/timeline" element={<Container />}/>
+            <Route path="/timeline" element={<Container Component={Timeline} />}/>
           </Routes>
         </BrowserRouter>
       </RefreshProvider>
