@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import teste from"../assets/teste.png";
+
 export default function Timeline(){
   return(
   <StyleContainer>
@@ -32,7 +33,6 @@ justify-content: center;
 const StylePost=styled.div`
 background-color: #FFF;
 width: 611px;
-height: 209px;
 border-radius: 16px;
 padding: 16px 18px;
 flex-direction: column;
@@ -41,7 +41,8 @@ display: flex;
 .top{
 display: flex;
 flex-direction: row;
-margin-bottom: 25px;
+
+
   .pictureuser{
   overflow: hidden;
   width: 50px;
@@ -50,6 +51,7 @@ margin-bottom: 25px;
   justify-content: center;
   border-radius: 50px;
   margin-right: 16px;
+
   img{
     width: 100%;
     height: 100%;
@@ -61,6 +63,7 @@ margin-bottom: 25px;
     color:#707070;
     font-size: 20px;
     font-family: 'Lato', sans-serif;
+    font-weight:thin;
   }
 
  }
@@ -68,9 +71,43 @@ margin-bottom: 25px;
 `
 
 const BodyPost=styled.form`
+
 .formpost{
   flex-direction: column;
   display: flex;
+  margin-left: 50px;
+  margin-bottom: 20px;
+
+  .describe, .link {
+    background-color: #EFEFEF;
+    font-family: 'Lato', sans-serif;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .describe{
+    padding: 8px 12px 40px ;
+    width: 502px;
+    height: 66px;
+    
+  }
+
+  .link{
+    height: 30px;
+    width: 503px;
+    margin-bottom: 5px;
+  }
+
+  .publish{
+    border: none;
+    background-color: #1877F2;
+    width: 112px;
+    height: 31px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 390px;
+    color:#fff;
+  }
 }
 
 `
