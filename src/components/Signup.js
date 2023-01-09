@@ -27,8 +27,15 @@ export default function Signup() {
           icon: "error",
           timer: "7000",
         });
-      }
-      navigate("/signin");
+      }else {
+        navigate("/");
+        return swal({
+            title: "Congratulations",
+            text: res.data,
+            icon: "success",
+            timer: "7000",
+          });
+          }
     });
   }
   return (
