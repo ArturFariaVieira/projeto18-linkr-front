@@ -20,7 +20,7 @@ export default function Signup() {
     e.preventDefault();
     signup(form).then((res) => {
       console.log(res.data);
-      if (res.data) {
+      if (res.data !== "Created") {
         return swal({
           title: "Error",
           text: res.data,
@@ -101,7 +101,7 @@ export default function Signup() {
           <button onClick={handleSendForm}>Sign Up</button>
 
           <span>
-            <Link className="link" to="/signin">
+            <Link className="link" to="/">
               Switch back to log in
             </Link>
           </span>
