@@ -9,7 +9,7 @@ import { AuthContext } from "../Contexts/AuthContext";
 export default function Signin() {
   const [form, setForm] = useState({});
   const navigate = useNavigate();
-  const { setJwt } = useContext(AuthContext);
+  const { setJwt, setPicture } = useContext(AuthContext);
 
   function handleForm({ value, name }) {
     setForm({
@@ -21,16 +21,25 @@ export default function Signin() {
   function handleSendForm(e) {
     e.preventDefault();
     signin(form).then((res) => {
-      if (res.data.message) {
+      console.log(res.data)
+      if (!res.data.token) {
         return swal({
           title: "Error",
-          text: res.data.message,
+          text: res.data,
           icon: "error",
           timer: "7000",
         });
+      }else {
+        setJwt(res.data.token);
+        setPicture(res.data.picture) 
+        navigate("/timeline");
+        return swal({
+          title: "Bem vindo/a",
+          text: res.data.username,
+          icon: "success",
+          timer: "7000",
+        });
       }
-      setJwt(res.data.token);
-      navigate("/timeline");
     });
   }
   return (
