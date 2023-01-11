@@ -7,7 +7,7 @@ import { Tooltip as ReactTooltip } from 'react-tooltip'
 import "react-tooltip/dist/react-tooltip.css";
 import { ReactTagify } from "react-tagify";
 
-export default function Publish({ post }){
+export default function Posts({ post }){
   const [likes, setLikes] = useState(3);
   const [liked, setLiked] = useState(false);
 
