@@ -6,7 +6,7 @@ export default function Container({ Component, titlePage="timeline" }) {
     <>
       <Header/>
       <Section>
-        <h2>{titlePage}</h2>
+        <h2 className="page-title">{titlePage}</h2>
         <Component />
       </Section>
     </>
@@ -16,7 +16,7 @@ export default function Container({ Component, titlePage="timeline" }) {
 const Section = styled.section`
   display: flex;
   flex-direction: column;
-  h2 {
+  .page-title {
 
     margin-left: 28px;
     font-style: normal;
