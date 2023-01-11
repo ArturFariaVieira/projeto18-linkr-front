@@ -1,6 +1,6 @@
 import Post from "../components/Post.js";
 import arrayposts from "../assets/arrayposts.js"
-import Publish from "../components/Publish.js";
+import Posts from "../components/Posts.js";
 
 export default function Timeline() {
 
@@ -9,7 +9,7 @@ export default function Timeline() {
     
     <>
       <Post />
-      {arrayposts.map((postinfo) => <Publish key={postinfo.id}  post={postinfo} />)}
+      {arrayposts.map((postinfo) => <Posts key={postinfo.id}  post={postinfo} />)}
     </>
   )
 }
