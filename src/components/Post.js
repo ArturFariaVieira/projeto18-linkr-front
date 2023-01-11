@@ -1,13 +1,15 @@
 import styled from "styled-components";
-import teste from"../assets/teste.png";
+import { useContext } from "react";
+import { AuthContext } from "../Contexts/AuthContext";
 
-export default function Timeline(){
+export default function Timeline() {
+  const { picture } = useContext(AuthContext);
   return(
   <StyleContainer>
     <StylePost>
       <div className="top">
         <div className="pictureuser">
-          <img src={teste} alt="user piture"/>
+          <img src={picture} alt="user piture"/>
         </div>
         <h1 className="toptitle">
             What are you doing to share today?
@@ -28,7 +30,7 @@ export default function Timeline(){
 const StyleContainer=styled.div`
 display: flex;
 justify-content: center;
-
+margin-bottom: 30px;
 `
 const StylePost=styled.div`
 background-color: #FFF;

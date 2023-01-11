@@ -1,20 +1,50 @@
+import { useState } from "react";
 import styled from "styled-components";
-import teste from "../assets/teste.png"
 import editar from "../assets/editar.svg";
 
 import LinkPreview from "./LinkPreview.js"
-export default function Publish(){
+import { Tooltip as ReactTooltip } from 'react-tooltip'
+import "react-tooltip/dist/react-tooltip.css";
+import { ReactTagify } from "react-tagify";
+
+export default function Publish({ post }){
+  const [likes, setLikes] = useState(3);
+  const [liked, setLiked] = useState(false);
+
+  function onClickLike() {
+    setLiked(!liked)
+    if(liked) {
+      const newQtdLikes = likes+1;
+      setLikes(newQtdLikes);
+    }else{
+      const newQtdLikes = likes -1;
+      if(newQtdLikes < 0) {
+        setLikes(0);
+      }else{
+        setLikes(newQtdLikes);
+      }
+    }
+  }
+
+  const tagStyle = {
+    color: '#FFFFFF',
+    fontWeight: 700,
+    cursor: 'pointer',
+    marginBottom: '20px'
+  };
+
+  const classNamePostLiked = liked ? 'liked': 'unliked';
+  const typeHeart = liked ? 'heart' :'heart-outline';
+
   return(
     <>
       <StyleContainer>
         <StylePublish>
           <div className="top">
             <div className="pictureuser">
-              <img src={teste} alt="user piture"/>
+              <img src={post.user?.picture} alt="user piture"/>
             </div>
-            <h1 className="username">
-              juvenal nome perfil fake
-            </h1>
+            <h1 className="username">{post.user?.name}</h1>
             <div className="icons">
               <img className="pen" src={editar} alt="editar"/>
               <ion-icon name="trash"></ion-icon>
@@ -22,18 +52,27 @@ export default function Publish(){
           </div>
           <BodyPublish>
             <div className="icon">
-              <ion-icon size="50"name="heart-outline"></ion-icon>
-              <p className="qtdlikes">34 likes</p>
+              <ion-icon id={post.id} class={classNamePostLiked} size="50" name={typeHeart} onClick={() => onClickLike()}></ion-icon>
+              <p className="qtdlikes">{likes} likes</p>
             </div>
             <div className="body">
-              <p className="describe">
-                Muito maneiro esse tutorial de Material UI com React, 
-                deem uma olhada! #react #material
-              </p>
+              <span className="describe">
+                <ReactTagify
+                  className="io"
+                  tagStyle = {tagStyle}
+                  tagClicked={(tag) => alert(tag)}>
+                  <p>
+                      {post.text}
+                  </p>
+                </ReactTagify>
+              </span>
               <LinkPreview/>
             </div>
           </BodyPublish>
         </StylePublish>
+        <ReactTooltip anchorId={post.id} place="bottom" type="info" content={
+          `Você, e mais ${likes} pessoas`
+        } />
       </StyleContainer>
     </>
   )
@@ -42,6 +81,7 @@ export default function Publish(){
 const StyleContainer=styled.div`
 display: flex;
 justify-content: center;
+margin-bottom: 20px;
 `
 
 const StylePublish=styled.div`
@@ -122,5 +162,18 @@ justify-content: space-between;
     font-size: 19px;
   }
   margin-right: 30px;
+
+  .qtdlikes {
+    margin-top: 5px;
+    text-align: center;
+  }
+  .liked {
+    color: red;
+    visibility: inherit;
+  }
+  .unliked {
+    color: white;
+    visibility: inherit;
+  }
 }
 `

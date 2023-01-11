@@ -15,7 +15,6 @@ async function getPreviewData(requestUrl) {
 function parseData(data) {
   if (Object.keys(data).length === 0) return {};
   const title = data.title;
-  console.log(data);
   const image = data.image.url;
   const description = data.description;
   const url = data.url;

@@ -1,11 +1,15 @@
 import Post from "../components/Post.js";
+import arrayposts from "../assets/arrayposts.js"
 import Publish from "../components/Publish.js";
-import LinkPreview from "../components/LinkPreview.js";
+
 export default function Timeline() {
+
+ 
   return(
+    
     <>
       <Post />
-      <Publish/>
+      {arrayposts.map((postinfo) => <Publish key={postinfo.id}  post={postinfo} />)}
     </>
   )
 }
